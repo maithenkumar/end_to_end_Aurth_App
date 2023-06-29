@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_node_auth/providers/user_provider.dart';
-import 'package:flutter_node_auth/screens/home_screen.dart';
-import 'package:flutter_node_auth/screens/signup_screen.dart';
-import 'package:flutter_node_auth/services/auth_services.dart';
 import 'package:provider/provider.dart';
+
+import 'providers/user_provider.dart';
+import 'screens/home_screen.dart';
+import 'screens/signup_screen.dart';
+import 'services/auth_services.dart';
 
 void main() {
   runApp(
@@ -39,7 +40,9 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Provider.of<UserProvider>(context).user.token.isEmpty ? const SignupScreen() : const HomeScreen(),
+      home: Provider.of<UserProvider>(context).user.token.isEmpty
+          ? const SignupScreen()
+          : const HomeScreen(),
     );
   }
 }
